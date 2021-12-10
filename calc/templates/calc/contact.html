@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+{% extends 'calc/base.html' %}
+{% block content %}
+
+<!--<div class="bar">-->
+<!--    <a href="/"> <button class="btn">Strona główna</button> </a>-->
+<!--    <a href="/concrete/"> <button class="btn">Wybierz rodzaj betonu i zastosowanie</button> </a>-->
+<!--    <a href="/contact/"> <button class="btn">Kontakt</button> </a>-->
+<!--</div>-->
+
+<h1>Zapraszamy do kontaktu</h1>
+<br>
+<h3>Pracujemy dla was od poniedziałku do soboty.</h3>
+<h3>W sprawie zamówień prosimy o kontakt z naszymi wykwalifikowanymi pracownikami. Chętnie odpowiedzą na <u>wszystkie</u> pytania!</h3>
+<h3>Prosimy o kontakt pod numerem telefonu: 600-700-800</h3><br>
+
+<div class="contact">
+    <ul>
+    {% for person in persons_in_work %}
+        <li><b>{{ person.first_name}} {{ person.last_name }}</b> - {{ person.description }}<br><br>
+            {% for i in person.days.all %}
+                Dyżur: {{i.get_day_display}}, godziny: {{i.get_hour_display}}<br>
+            {% endfor %}</li>
+        <br><br>
+    {% endfor %}
+    </ul>
+</div>
+
+<br><br>
+<h3>Dyżury pracowników, w zależności od dnia i godziny</h3>
+
+<!--<ul>-->
+<!--{% for day in days_of_work  %}-->
+<!--    <li>{{ day.get_day_display}},<br>-->
+<!--        godzina: {{ day.get_hour_display }}, {{day.persons}}</li>-->
+<!--{% endfor %}-->
+<!--</ul>-->
+
+<ul>
+{% for day in days_of_work %}
+    <li><b>{{ day.get_day_display}}, godzina: {{ day.get_hour_display }}</b></li>
+        {{day.persons}}<br><br>
+{% endfor %}
+</ul>
+
+
+<br>
+<h4>W niedziele nie pracujemy. </h4>
+
+
+
+
+<!--    <form method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form.as_p }}-->
+<!--        <input type="submit" value="Wybierz">-->
+<!--    </form>-->
+
+<!--<h3> {{ result }} </h3>-->
+
+<br><br>
+
+<div class="bar">
+    <a href="/"> <button class="btn">Strona główna</button> </a>
+    <a href="/concrete/"> <button class="btn">Wybierz rodzaj betonu i zastosowanie</button> </a>
+    <a href="/contact/"> <button class="btn">Kontakt</button> </a>
+</div>
+
+
+
+{% endblock %}
+
+</body>
+</html>

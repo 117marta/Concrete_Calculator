@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wybór kształtu</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+{% extends 'calc/base.html' %}
+{% block content %}
+
+
+<!--<div class="bar">-->
+<!--    <a href="/"> <button class="btn">Strona główna</button> </a>-->
+<!--    <a href="/concrete/"> <button class="btn">Wybierz rodzaj betonu i zastosowanie</button> </a>-->
+<!--    <a href="/contact/"> <button class="btn">Kontakt</button> </a>-->
+<!--    <a href="/login/"> <button class="btn">Logowanie</button> </a>-->
+<!--</div>-->
+
+<!--<div class="login">-->
+<!--    {% if user.is_authenticated %}-->
+<!--        Witaj {{ user }} <a href="/logout/">Wyloguj</a>-->
+<!--    {% else %}-->
+<!--        Witaj nieznajomy <a href="/login/">Zaloguj</a>-->
+<!--    {% endif %}-->
+<!--</div>-->
+<!--<br><br>-->
+
+<div class="concrete_calculator">
+    <div class="calc_description">
+        <h3>Witamy w prostym kalkulatorze do obliczania objętości betonu</h3>
+        <p>Wybierz interesujący Cię kształt, wypełnij dane, a następnie kliknij OBLICZ.</p>
+        <p>Należy pamiętać, że obliczenia mają charakter poglądowy. Do dokładnej ilości zamówienia konieczne jest
+        sprawdzenie ilości zbrojenia oraz uwzględnienie odpowiedniego zapasu betonu.</p>
+        <br>
+    </div>
+
+    <div class="calc_shape">
+        <h4>Wybierz kształt</h4>
+
+        <div id="calc_figures">
+
+            <div class="" data-figure="rectangle">
+                <a href="/calculate/rectangle/">
+                <img src="/static/images/rectangular.png" alt="Płyta fundamentowa">
+                <br>Płyta fundamentowa</a>
+            </div>
+
+            <div class="" data-figure="footing">
+                <a href="/calculate/footing/">
+                <img src="/static/images/footing.png" alt="Ława fundamentowa">
+                <br>Ława fundamentowa</a>
+
+            </div>
+
+            <div class="" data-figure="cylinder">
+                <a href="/calculate/cylinder/">
+                <img src="/static/images/cylinder.png" alt="Walec">
+                <br>Walec</a>
+            </div>
+
+            <div class="" data-figure="triangle">
+                <a href="/calculate/triangle/">
+                <img src="/static/images/triangle.png" alt="Trójkąt">
+                <br>Trójkąt</a>
+            </div>
+
+            <div class="" data-figure="slab">
+                <a href="/calculate/slab/">
+                <img src="/static/images/slab.png" alt="Płyta z wgłębieniem">
+                <br>Płyta z wgłębieniem</a>
+            </div>
+
+            <div class="" data-figure="stairs">
+                <a href="/calculate/stairs/">
+                <img src="/static/images/stairs.png" alt="Schody">
+                <br>Schody</a>
+            </div>
+        </div>
+    </div>
+
+<!--    <div class="calc_dimensions">-->
+<!--        <h4>Podaj wymiary</h4>-->
+
+<!--        <div id="calc_form">-->
+<!--            <form action="" method="post">-->
+<!--                {% csrf_token %}-->
+<!--                <div class="rectangular footing triangle slab stairs" style="display: block">-->
+<!--                    <label> X <input type="number" min="0.00" step="0.1" placeholder="Szerokość [m]" name="X"></label>-->
+<!--                </div>-->
+<!--                <div class="rectangular footing cylinder triangle slab stairs">-->
+<!--                    <label> Y <input type="number" min="0.00" step="0.1" placeholder="Długość [m]" name="Y"></label>-->
+<!--                </div>-->
+<!--                <div class="rectangular triangle slab stairs">-->
+<!--                    <label> Z <input type="number" min="0.00" step="0.1" placeholder="Wysokość [m]" name="Z"></label>-->
+<!--                </div>-->
+<!--                <div class="cylinder">-->
+<!--                    <label> R <input type="number" min="0.00" step="0.1" placeholder="Promień [m]" name="R"></label>-->
+<!--                </div>-->
+<!--                <div class="slab stairs">-->
+<!--                    <label> W <input type="number" min="0.00" step="0.1" placeholder="Szerokość [m]" name="W"></label>-->
+<!--                </div>-->
+<!--                <div class="slab">-->
+<!--                    <label> H <input type="number" min="0.00" step="0.1" placeholder="Wysokość [m]" name="H"></label>-->
+<!--                </div>-->
+<!--                <div class="stairs">-->
+<!--                    <label> V <input type="number" min="0.00" step="0.1" placeholder="Liczba stopnii [m]" name="V"></label>-->
+<!--                </div>-->
+<!--                <div class="slab">-->
+<!--                    <label> T <input type="number" min="0.00" step="0.1" placeholder="Długść płyty [m]" name="T"></label>-->
+<!--                </div>-->
+
+<!--                <input type="submit" value="Oblicz">-->
+
+<!--            </form>-->
+
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+
+</div>
+
+
+<h1> {{ result }}</h1>
+
+{% endblock %}
+
+<!--<script src="static/js/shape.js"></script>-->
+</body>
+</html>

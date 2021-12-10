@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Oblicz objętość</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+{% extends 'calc/base.html' %}
+{% block content %}
+
+<!--<div class="bar">-->
+<!--    <a href="/"> <button class="btn">Strona główna</button> </a>-->
+<!--    <a href="/concrete/"> <button class="btn">Wybierz rodzaj betonu i zastosowanie</button> </a>-->
+<!--    <a href="/contact/"> <button class="btn">Kontakt</button> </a>-->
+<!--</div>-->
+<!--<br><br>-->
+
+Uzupełnij dane konieczne do zamówienia.
+W komentarzu koniecznie umieść adres dostawy, a także dodatkowe uwagi do zamówienia.
+<br>
+Zapmiętaj swój numer zamówienia i w skontaktuj się z naszą infolinią w celu ustalenia terminu dostawy.
+
+<div class="form_div">
+    <form method="post" class="form_volume">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Wybierz" class="form_btn">
+    </form>
+</div>
+
+<h3> {{ result }} </h3>
+
+Id zamówienia: {{ get_id.id }} get_id <br>
+Id zamówienia: {{ get_id.volume }} get_id
+------------------------------------------------------
+<br><br>
+
+
+
+
+
+
+
+
+Jeżeli nie wiesz jaki beton wybrać, poniżej przedstawiamy przykładową tabelkę, w której możesz sprawdzić gdzie stosuje się zazwyczaj dany rodzaj betonu.
+<br><br>
+
+<table>
+    <thead>
+        <tr>Przykładowa tabelka
+            <th>Beton</th>
+            <th>Zastosowanie</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Beton 1</td>
+            <td>Zastosowanie 1</td>
+        </tr>
+        <tr>
+            <td>Beton 2</td>
+            <td>Zastosowanie 2</td>
+        </tr>
+        <tr>
+            <td>Beton 3</td>
+            <td>Zastosowanie 3</td>
+        </tr>
+    </tbody>
+
+
+</table>
+{{ form_concrete }}
+
+
+
+
+{% endblock %}
+
+
+
+</body>
+</html>

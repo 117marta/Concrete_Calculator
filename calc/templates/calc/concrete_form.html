@@ -1,0 +1,26 @@
+{% extends 'calc/base.html' %}
+{% block content %}
+
+
+<div class="form_div">
+    <form method="post" class="form_volume">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Dodaj beton" class="form_btn">
+    </form>
+</div>
+
+<br>
+{% if messages %}
+    {% for message in messages %}
+        <div class="text-center alert alert-{{ message.tags }}">
+            {{ message|safe }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+body {
+    background-color: wheat;
+    /*background-image: url("../images/Beton1.jpg");*/
+    /*background-position: top center;*/
+    /*background-size: 100%;*/
+    /*background-repeat: no-repeat;*/
+    /*text-align: center;*/
+}
+
+/*img {*/
+/*    opacity: 50%;*/
+/*}*/
+
+header {
+    /*border: 2px blue solid;*/
+    background: linear-gradient(90deg, rgba(255, 0, 0, 1), rgba(255, 165, 0, 1));
+    /*background-color: coral;*/
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.bar, .login{
+    border: 1px solid black;
+    margin: 0;
+
+}
+
+.login a {
+    text-decoration: none;
+    color: white;
+    /*background-color: yellowgreen;*/
+    background: linear-gradient(120deg, rgba(128, 0, 128, 0.3) 0%, rgba(128, 0, 128, 1) 50%);
+    border-radius: 5px;
+    padding: 3px;
+    box-shadow: black -1px 1px 1px;
+    border: black solid 1px;
+}
+
+.calc_shape {
+    border: 3px dotted blueviolet;
+    /*background-color: rgba(128, 128, 128, 0.9);*/
+    background-color: darkgray;
+
+}
+
+#calc_figures img {
+    height: 250px;
+}
+
+#calc_figures div {
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    color: green;
+    margin-right: 20px;
+    border: cornflowerblue 1px dashed;
+}
+
+#calc_figures div:hover {
+    color: deeppink;
+    background-color: lightcyan;
+    border-radius: 15px;
+    box-shadow: 2px 4px 4px yellow;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+[data-figure] a {
+    text-decoration: none;
+    color: green;
+}
+
+[data-figure] a:hover {
+    text-decoration: none;
+    color: crimson;
+}
+
+
+#calc_form {
+    display: block;
+    margin-bottom: 15px;
+    color: white;
+    border: 1px;
+}
+
+.result {
+    display: inline-block;
+    background-color: red;
+}
+
+.btn {
+    background-color: yellow;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.btn:hover {
+    color: yellow;
+    background-color: black;
+    cursor: pointer;
+}
+
+/* ################################################################################################################## */
+
+.error {
+    color:red;
+}
+
+/* ################################################################################################################## */
+
+
+.contact {
+    background-color: rgba(255, 0, 0, 0.3);
+    padding: 20px;
+    display: flex;
+    border-radius: 5px;
+    box-shadow: black 2px 2px 20px;
+    /*margin-left: 600px;*/
+    width: 35%;
+    margin: 0 auto;
+
+    /*justify-content: center;*/
+    /*height: 200px;*/
+    /*align-items: center;*/
+}
+
+/* ################################################################################################################## */
+
+.form_volume {
+    background: #ffffff;
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    box-shadow: 1px 2px 3px;
+    text-align: left;
+    /*width: 30%;*/
+}
+
+
+.form_btn {
+    background: orangered;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 30px;
+    transition: 0.5s;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: crosshair;
+}
+
+.form_div {
+    display: flex;
+    justify-content: center;
+}
+
+/* ################################################################################################################## */
+
+.summary {
+    background: white;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.summary_concrete {
+    background: green;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px;
+
+}
+
+.summary_contact {
+    background: cornflowerblue;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px;
+}
+
+.summary_ul {
+    background: yellow;
+    list-style: none;
+    line-height: 40px;
+}
+
+
+.summary_ul li:before {
+    content: '✅';
+    /*content: '📌';*/
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/*.summary_ul li:before {*/
+/*    position: absolute;*/
+/*    display: inline-block;*/
+/*    content: counter(line);*/
+/*    left: 20px;*/
+/*    background-color: red;*/
+/*    color: pink;*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    border-radius: 50%;*/
+/*    text-align: center;*/
+/*    counter-increment: line;*/
+/*    vertical-align: middle;*/
+/*    line-height: normal;*/
+/*}*/
+
+
+/* ################################################################################################################## */
+
+th {
+    border: 1px solid black;
+    padding: 10px;
+    background-color: gold;
+}
+
+td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+}

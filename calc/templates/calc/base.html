@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kalkulator betonu</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="bar">
+        <a href="/"> <button class="btn">Strona główna</button> </a>
+        <a href="/concrete/"> <button class="btn">Wybierz rodzaj betonu i zastosowanie</button> </a>
+        <a href="/contact/"> <button class="btn">Kontakt</button> </a>
+        <a href="/login/"> <button class="btn">Logowanie</button> </a>
+        <a href="/add_concrete/"> <button class="btn">Dodaj beton</button> </a>
+    </div>
+
+    <div class="bar"><h4 class="bar">Kalkulator do obliczania objętości betonu</h4></div>
+
+    <div class="login">
+        {% if user.is_authenticated %}
+            Witaj <strong>{{ user }}</strong> <a href="/logout/">Wyloguj</a>
+        {% else %}
+            Witaj nieznajomy <a href="/login/">Zaloguj</a>
+            <a href="/register/">Zarejestruj</a>
+        {% endif %}
+    </div>
+</header>
+<br>
+
+{% if user.is_authenticated %}
+    <div class="form_btn">
+            Witaj, to twoja belka dostępu:
+    </div>
+{% endif %}
+
+
+<br><br>
+
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
