@@ -2,8 +2,8 @@
 {% block content %}
 
 
-<div class="form_div">
-    <form method="post" class="form_volume">
+<div class="addconcrete_form_div">
+    <form method="post" class="addconcrete_form">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Dodaj beton" class="form_btn">
@@ -21,6 +21,3 @@
 
 
 {% endblock %}
-
-</body>
-</html>

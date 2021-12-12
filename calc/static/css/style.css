@@ -1,15 +1,12 @@
 body {
-    background-color: wheat;
-    /*background-image: url("../images/Beton1.jpg");*/
-    /*background-position: top center;*/
-    /*background-size: 100%;*/
-    /*background-repeat: no-repeat;*/
-    /*text-align: center;*/
+    /*background-color: wheat;*/
+    background: #3f1d2b url("../images/Beton1.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
 }
 
-/*img {*/
-/*    opacity: 50%;*/
-/*}*/
 
 header {
     /*border: 2px blue solid;*/
@@ -18,17 +15,17 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 15px;
+    margin: 5px;
     align-items: center;
     border-radius: 30px;
 }
 
-.bar, .login{
+.base_bar, .base_login{
     border: 1px solid black;
     margin: 0;
-
 }
 
-.login a {
+.base_login a {
     text-decoration: none;
     color: white;
     /*background-color: yellowgreen;*/
@@ -39,64 +36,11 @@ header {
     border: black solid 1px;
 }
 
-.calc_shape {
-    border: 3px dotted blueviolet;
-    /*background-color: rgba(128, 128, 128, 0.9);*/
-    background-color: darkgray;
-
-}
-
-#calc_figures img {
-    height: 250px;
-}
-
-#calc_figures div {
-    display: inline-block;
-    text-align: center;
-    font-weight: bold;
-    color: green;
-    margin-right: 20px;
-    border: cornflowerblue 1px dashed;
-}
-
-#calc_figures div:hover {
-    color: deeppink;
-    background-color: lightcyan;
-    border-radius: 15px;
-    box-shadow: 2px 4px 4px yellow;
-    cursor: pointer;
-    transition: 0.5s;
-}
-
-
-[data-figure] a {
-    text-decoration: none;
-    color: green;
-}
-
-[data-figure] a:hover {
-    text-decoration: none;
-    color: crimson;
-}
-
-
-#calc_form {
-    display: block;
-    margin-bottom: 15px;
-    color: white;
-    border: 1px;
-}
-
-.result {
-    display: inline-block;
-    background-color: red;
-}
-
 .btn {
     background-color: yellow;
     padding: 5px;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .btn:hover {
@@ -107,32 +51,143 @@ header {
 
 /* ################################################################################################################## */
 
+.p_description {
+    line-height: 25pt;
+    font-size: 20px;
+    /*color: blueviolet;*/
+}
+
+.shape_container {
+    box-sizing: border-box;
+    background-color: rgba(200, 200, 0, 0.9);
+    box-shadow: 0px 0px 30px;
+    margin: 0 auto;
+    padding: 50px;
+    width: 80%;
+}
+
+.shape_figure {
+    /*position: absolute;*/
+    border: 3px dotted blueviolet;
+    background-color: rgba(128, 128, 128, 0.9);
+    display: flex;
+    flex-wrap: wrap;
+
+    /*flex-direction: row;*/
+    /*overflow-x: auto;*/
+
+    justify-content: space-around;
+}
+
+.shape_figure img {
+    height: 300px;
+}
+
+.shape_figure div {
+    text-align: center;
+    font-weight: bold;
+    margin: 10px;
+    border: cornflowerblue 1px dashed;
+    /*justify-content: space-around;*/
+    /*justify-content: space-between;*/
+}
+
+.shape_figure div:hover {
+    color: deeppink;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px yellow;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+.shape_figure a {
+    text-decoration: none;
+    color: blue;
+}
+
+.shape_figure a:hover {
+    text-decoration: none;
+    color: crimson;
+}
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gallery a {
+    box-sizing: border-box;
+    max-width: 50%;
+    padding: 5px;
+}
+
+.gallery img{
+    display: block;
+    filter: grayscale(0);
+    filter: ;
+    transition: 0.5s;
+    max-width: 100%;
+}
+
+.gallery img:hover {
+    filter: grayscale(1);
+}
+
+
+
+/* ################################################################################################################## */
+
 .error {
     color:red;
 }
 
 /* ################################################################################################################## */
 
+.container {
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 30px;
+    margin: 0 auto;
+    padding: 50px;
+    width: 80%;
+
+    /*max-width: 90%;*/
+    /*color: yellow;*/
+    /*line-height: 1.5em;*/
+}
 
 .contact {
-    background-color: rgba(255, 0, 0, 0.3);
+    background-color: rgba(255, 0, 0, 0.9);
     padding: 20px;
     display: flex;
     border-radius: 5px;
     box-shadow: black 2px 2px 20px;
-    /*margin-left: 600px;*/
-    width: 35%;
+    width: 40%;
     margin: 0 auto;
-
-    /*justify-content: center;*/
-    /*height: 200px;*/
-    /*align-items: center;*/
+    justify-content: center;
 }
 
 /* ################################################################################################################## */
 
-.form_volume {
-    background: #ffffff;
+.calculatororder_container {
+    box-sizing: border-box;
+    background-color: rgba(0, 200, 200, 0.9);
+    box-shadow: 0px 0px 30px;
+    margin: 0 auto;
+    padding: 50px;
+    width: 80%;
+}
+
+.volume_form_div, .login_form_div, .concrete_form_div, .addconcrete_form_div, .register_form_div {
+    display: flex;
+    justify-content: center;
+}
+
+.volume_form, .concrete_form, .login_form, .addconcrete_form, .register_form {
+    background: rgba(255, 255, 255, 0.95);
     display: inline-flex;
     justify-content: center;
     flex-direction: column;
@@ -140,8 +195,8 @@ header {
     box-shadow: 1px 2px 3px;
     text-align: left;
     /*width: 30%;*/
+    margin-right: 50px;
 }
-
 
 .form_btn {
     background: orangered;
@@ -154,18 +209,25 @@ header {
     cursor: crosshair;
 }
 
-.form_div {
-    display: flex;
-    justify-content: center;
-}
-
 /* ################################################################################################################## */
+
+.summary_container {
+    box-sizing: border-box;
+    background-color: rgba(0, 200, 200, 0.9);
+    box-shadow: 0px 0px 30px;
+    margin: 0 auto;
+    padding: 50px;
+    width: 80%;
+}
 
 .summary {
     background: white;
+    /*display: inline-block;*/
+    /*justify-content: center;*/
+    width: 60%;
+    /*margin: 0 auto;*/
     display: flex;
-    justify-content: center;
-    width: 50%;
+    justify-content: space-around;
 }
 
 .summary_concrete {
@@ -184,9 +246,10 @@ header {
 }
 
 .summary_ul {
-    background: yellow;
+    /*background: yellow;*/
     list-style: none;
     line-height: 40px;
+    margin: auto;
 }
 
 
@@ -230,4 +293,16 @@ td {
 table {
     border-collapse: collapse;
     text-align: center;
+    background-color: white;
+    /*position: ;*/
 }
+
+/* ################################################################################################################## */
+
+.concrete_form_table {
+    display: flex;
+    justify-content: center;
+    padding-right: 50px;
+}
+
+

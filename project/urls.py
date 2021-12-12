@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from calc.views import ShapeChoiceView, ShapeView, RectangularView, FootingView, CylinderView, \
+from calc.views import ShapeChoiceView, ShapeView, RectangularView, FootingView, CylinderView, TypeValue, \
     TriangleView, SlabView, StairsView, ConcreteView, ContactView, \
     LoginView, LogoutView, RegisterView, AddConcreteView, SummaryView
 
@@ -29,6 +29,7 @@ urlpatterns = [
     path('calculate/triangle/', TriangleView.as_view()),
     path('calculate/slab/', SlabView.as_view()),
     path('calculate/stairs/', StairsView.as_view()),
+    path('calculate/type_value/', TypeValue.as_view()),
     # path('concrete/', ConcreteView.as_view()),
     path('contact/', ContactView.as_view()),
     path('login/', LoginView.as_view()),

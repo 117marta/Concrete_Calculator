@@ -30,7 +30,7 @@ class ShapeChoiceForm(forms.Form):
 #     H = forms.FloatField(label='Wysokość wgłębienia:')
 #     V = forms.FloatField(label='Liczba schodków:')
 #     T = forms.FloatField(label='Długość płyty:')
-
+#     value = forms.FloatField(label='Podaj wartość:')
 
 
 class RectangularForm(forms.Form):  # Płyta fundamentowa
@@ -73,6 +73,11 @@ class StairsForm(forms.Form):  # Schody
     W = forms.FloatField(label='W:', widget=forms.TextInput(attrs={'placeholder': 'Grubość płyty pod schodami [m]'}))
 
 
+class TypeValueForm(forms.Form):
+    value = forms.FloatField(label='Podaj wartość:', widget=forms.TextInput(attrs={'placeholder': 'Wpisz objętość'}))
+
+
+
 # class ConcreteForm(forms.ModelForm):
     # class Meta:
     #     model = Concrete
@@ -109,6 +114,7 @@ class ConcreteForm(forms.Form):
     form_use = forms.ModelChoiceField(queryset=Use.objects.all(), label='Zastosowanie')
     form_concrete = forms.ModelChoiceField(queryset=Concrete.objects.all(), label='Beton')
     form_legal_name = forms.CharField(max_length=150, label='Imię i Nazwisko')
+    form_phone = forms.IntegerField(label='Telefon')
     form_comment = forms.CharField(widget=forms.Textarea, label='Komentarz do zamówienia')
 
 

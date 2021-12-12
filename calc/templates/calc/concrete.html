@@ -1,52 +1,87 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Oblicz objętość</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
-<body>
-
 {% extends 'calc/base.html' %}
 {% block content %}
 
-<!--<div class="bar">-->
-<!--    <a href="/"> <button class="btn">Strona główna</button> </a>-->
-<!--    <a href="/concrete/"> <button class="btn">Wybierz rodzaj betonu i zastosowanie</button> </a>-->
-<!--    <a href="/contact/"> <button class="btn">Kontakt</button> </a>-->
-<!--</div>-->
-<!--<br><br>-->
 
-Uzupełnij dane konieczne do zamówienia.
-W komentarzu koniecznie umieść adres dostawy, a także dodatkowe uwagi do zamówienia.
-<br>
-Zapmiętaj swój numer zamówienia i w skontaktuj się z naszą infolinią w celu ustalenia terminu dostawy.
+<div class="calculatororder_container">
 
-<div class="form_div">
-    <form method="post" class="form_volume">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Wybierz" class="form_btn">
-    </form>
-</div>
+    <h1>Wypełnij formularz</h1>
+    <br>
+
+    <p class="p_description">W komentarzu koniecznie umieść <u>adres dostawy</u>, a także dodatkowe uwagi do zamówienia.
+        Zapamiętaj swój numer zamówienia i skontaktuj się z naszą infolinią (tel: 600-700-800) w celu ustalenia terminu dostawy.</p>
+    <br><br><br>
+
+    <div class="concrete_form_div">
+        <div class="form_div">
+            <form method="post" class="concrete_form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Wybierz" class="form_btn">
+            </form>
+        </div>
+
+        <div class="table_div">
+            <table>
+                <thead>
+                    <tr><strong>Twoje zamówienie:</strong></tr>
+                    <th>Nr zamówienia</th>
+                    <th>Objętość [m<sup>3</sup>]</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ get_id.id }}</td>
+                        <td>{{ get_id.volume }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <br><br>
+
+
+
+    <p class="p_description"><strong>Zastosowanie</strong><br>
+        Wybierz gdzie masz zamiar zastosować beton</p>
+    <br>
+
+    <p class="p_description"><strong>Beton</strong><br>
+        Wybierz rodzaj betonu zgodnie ze specyfikacją techniczną swojego projektu.
+        Jeżeli takiej nie posiadasz, wybierz rodzaj betonu z przykładowej tabelki.
+        Skontaktuj się z nami, gdy nie wiesz jaki rodzaj betonu wybrać - na pewno doradzimy!</p>
+    <br>
+
+    <p class="p_description"><strong>Imię i nazwisko</strong><br>
+        Zostaw swoje dane, abyśmy mogli się z Tobą skontaktować</p>
+    <br>
+
+    <p class="p_description"><strong>Telefon</strong><br>
+        Podaj swój telefon kontaktowy</p>
+    <br>
+
+    <p class="p_description"><strong>Komentarz do zamówienia</strong><br>
+        Koniecznie wpisz adres dostawy! Jeżeli masz jeszcze jakieś uwagi, możesz je tutaj wpisać.</p>
+    <br>
+
+
+    <br><br>
+
+
+
+
+
 
 <h3> {{ result }} </h3>
 
-Id zamówienia: {{ get_id.id }} get_id <br>
-Id zamówienia: {{ get_id.volume }} get_id
-------------------------------------------------------
+
+
+
+---------------------------------
+---------------------------------
 <br><br>
 
 
-
-
-
-
-
-
+<br><br>
 Jeżeli nie wiesz jaki beton wybrać, poniżej przedstawiamy przykładową tabelkę, w której możesz sprawdzić gdzie stosuje się zazwyczaj dany rodzaj betonu.
 <br><br>
 
@@ -76,12 +111,7 @@ Jeżeli nie wiesz jaki beton wybrać, poniżej przedstawiamy przykładową tabel
 </table>
 {{ form_concrete }}
 
-
+</div>
 
 
 {% endblock %}
-
-
-
-</body>
-</html>

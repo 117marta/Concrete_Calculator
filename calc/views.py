@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .forms import ShapeChoiceForm, RectangularForm, FootingForm, CylinderForm, TriangleForm, SlabForm, StairsForm, ConcreteForm, UseForm, LoginForm, RegisterForm
+from .forms import ShapeChoiceForm, RectangularForm, FootingForm, CylinderForm, TriangleForm, SlabForm, StairsForm, TypeValueForm, ConcreteForm, UseForm, LoginForm, RegisterForm
 from .models import Use, Concrete, Person, Day, List
 from math import pi, sqrt
 from django.contrib.auth.models import User
@@ -22,13 +22,13 @@ class ShapeView(View):
 class ShapeChoiceView(View):
     def get(self, request):
         return render(request, 'calc/shape_choice.html')
-    def post(self, request):
-        X = float(request.POST.get('X'))
-        Y = float(request.POST.get('Y'))
-        Z = float(request.POST.get('Z'))
-        # R = int(request.POST.get('R'))
-        result = f'Objętość betonu: {round((X * Y * Z), 1)} m3'
-        return render(request, 'calc/shape_choice.html', {'result': result})
+    # def post(self, request):
+    #     X = float(request.POST.get('X'))
+    #     Y = float(request.POST.get('Y'))
+    #     Z = float(request.POST.get('Z'))
+    #     # R = int(request.POST.get('R'))
+    #     result = f'Objętość betonu: {round((X * Y * Z), 1)} m3'
+    #     return render(request, 'calc/shape_choice.html', {'result': result})
 
 
 #########################################################################################################################
@@ -159,6 +159,19 @@ class StairsView(View):
             return render(request, 'calc/volume.html', {'form': form})
 
 
+class TypeValue(View):
+    def get(self, request):
+        form = TypeValueForm()
+        return render(request, 'calc/volume.html', {'form': form})
+    def post(self, request):
+        form = TypeValueForm(request.POST)
+        if form.is_valid():
+            result = form.cleaned_data['value']
+            new_object = List.objects.create(shape='-', volume=result)
+            # return render(request, 'calc/volume.html', {'form': form, 'result': result})
+            return redirect(f'/concrete/{new_object.id}')
+
+
 class ConcreteView(View):
     """Allows to choose the type of concrete and its uses."""
     def get(self, request, id):
@@ -171,11 +184,13 @@ class ConcreteView(View):
             form_use = form.cleaned_data['form_use']
             form_concrete = form.cleaned_data['form_concrete']
             form_legal_name = form.cleaned_data['form_legal_name']
+            form_phone = form.cleaned_data['form_phone']
             form_comment = form.cleaned_data['form_comment']
             add_data = List.objects.get(pk=id)
             add_data.concrete = form_concrete.name
             add_data.use_of_concrete = form_use.name
             add_data.legal_name = form_legal_name
+            add_data.phone = form_phone
             add_data.comment = form_comment
             add_data.save()
             # result = f'ID zastosowania: {form_use.id} // \n ID betonu: {form_concrete.id}'

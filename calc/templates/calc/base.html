@@ -10,34 +10,31 @@
 </head>
 <body>
 
+
 <header>
-    <div class="bar">
+    <div class="base_bar">
         <a href="/"> <button class="btn">Strona główna</button> </a>
-        <a href="/concrete/"> <button class="btn">Wybierz rodzaj betonu i zastosowanie</button> </a>
+        <a href="/concrete/"> <button class="btn">Kalkulator objętości betonu</button> </a>
         <a href="/contact/"> <button class="btn">Kontakt</button> </a>
         <a href="/login/"> <button class="btn">Logowanie</button> </a>
         <a href="/add_concrete/"> <button class="btn">Dodaj beton</button> </a>
     </div>
 
-    <div class="bar"><h4 class="bar">Kalkulator do obliczania objętości betonu</h4></div>
+    <div class="base_bar"><h4 class="base_bar">Kalkulator do obliczania objętości betonu</h4></div>
 
-    <div class="login">
+    <div class="base_login">
         {% if user.is_authenticated %}
             Witaj <strong>{{ user }}</strong> <a href="/logout/">Wyloguj</a>
+            <br><br> Jest: {% now "d-m-Y, H:i" %}
         {% else %}
             Witaj nieznajomy <a href="/login/">Zaloguj</a>
             <a href="/register/">Zarejestruj</a>
         {% endif %}
     </div>
 </header>
+
+
 <br>
-
-{% if user.is_authenticated %}
-    <div class="form_btn">
-            Witaj, to twoja belka dostępu:
-    </div>
-{% endif %}
-
 
 <br><br>
 

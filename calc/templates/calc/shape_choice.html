@@ -1,136 +1,99 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Wybór kształtu</title>
-    <link rel="stylesheet" href="static/css/style.css">
-</head>
-<body>
-
 {% extends 'calc/base.html' %}
 {% block content %}
 
 
-<!--<div class="bar">-->
-<!--    <a href="/"> <button class="btn">Strona główna</button> </a>-->
-<!--    <a href="/concrete/"> <button class="btn">Wybierz rodzaj betonu i zastosowanie</button> </a>-->
-<!--    <a href="/contact/"> <button class="btn">Kontakt</button> </a>-->
-<!--    <a href="/login/"> <button class="btn">Logowanie</button> </a>-->
-<!--</div>-->
 
-<!--<div class="login">-->
-<!--    {% if user.is_authenticated %}-->
-<!--        Witaj {{ user }} <a href="/logout/">Wyloguj</a>-->
-<!--    {% else %}-->
-<!--        Witaj nieznajomy <a href="/login/">Zaloguj</a>-->
-<!--    {% endif %}-->
-<!--</div>-->
-<!--<br><br>-->
+<div class="shape_container">
 
-<div class="concrete_calculator">
-    <div class="calc_description">
-        <h3>Witamy w prostym kalkulatorze do obliczania objętości betonu</h3>
-        <p>Wybierz interesujący Cię kształt, wypełnij dane, a następnie kliknij OBLICZ.</p>
-        <p>Należy pamiętać, że obliczenia mają charakter poglądowy. Do dokładnej ilości zamówienia konieczne jest
-        sprawdzenie ilości zbrojenia oraz uwzględnienie odpowiedniego zapasu betonu.</p>
+    <div class="shape_description">
+        <h1>Witamy w firmie Marta-Beton</h1>
+        <p class="p_description">Po prawie 30 latach jesteśmy liderami na rynku budowlanym w produkcji materiałów budowlanych na polskim rynku.
+            Nasza produkcja obejmuje głównie cement, kruszywa i beton. Wszystko to wyłącznie z lokalnych surowców.
+            Łączymy dostawę betonu z szeroką gamą naszych pozostałych usług, dzięki czemu zapewniamy skuteczne rozwiązanie dla twojego projektu.</p>
+
+        <p class="p_description">Posiadamy jedną z najnowocześniejszych w Polsce wytwórnię betonu o ciągłej wydajności 100 m<sup>3</sup> betonu na godzinę.
+            Proces produkcji odbywa się poprzez komputerowe sterowanie, dzięki czemu uzyskujemy produkt najwyższej jakości.
+            Nasze produkty posiadają odpowiednie aprobaty techniczne oraz niezbędne deklaracje techniczne.
+            Posiadamy własne, sprawdzone receptury do produkcji betonu najwyższej klasy, nad czym czuwa ekipa wykwalifikowanych laborantów.
+            Produkujemy także beton na życzenie klienta, zgodnie z wymaganiami i specyfikacją odbiorcy.
+        </p>
+
+        <h3>Wybierz interesujący Cię kształt, wypełnij dane, a następnie kliknij OBLICZ.</h3>
+        <h3>Należy pamiętać, że obliczenia mają charakter poglądowy. Do dokładnej ilości zamówienia konieczne jest
+        sprawdzenie ilości zbrojenia oraz uwzględnienie odpowiedniego zapasu betonu.</h3>
         <br>
     </div>
 
-    <div class="calc_shape">
-        <h4>Wybierz kształt</h4>
+    <h4>Wybierz kształt</h4>
 
-        <div id="calc_figures">
+    <div class="shape_figure">
 
-            <div class="" data-figure="rectangle">
-                <a href="/calculate/rectangle/">
-                <img src="/static/images/rectangular.png" alt="Płyta fundamentowa">
-                <br>Płyta fundamentowa</a>
-            </div>
 
-            <div class="" data-figure="footing">
-                <a href="/calculate/footing/">
-                <img src="/static/images/footing.png" alt="Ława fundamentowa">
-                <br>Ława fundamentowa</a>
+        <div id="rectangle">
+            <a href="/calculate/rectangle/">
+            <img src="/static/images/rectangle.png" alt="Płyta fundamentowa">
+            <br>Płyta fundamentowa</a>
+        </div>
 
-            </div>
+        <div id="footing">
+            <a href="/calculate/footing/">
+            <img src="/static/images/footing.png" alt="Ława fundamentowa">
+            <br>Ława fundamentowa</a>
 
-            <div class="" data-figure="cylinder">
-                <a href="/calculate/cylinder/">
-                <img src="/static/images/cylinder.png" alt="Walec">
-                <br>Walec</a>
-            </div>
+        </div>
 
-            <div class="" data-figure="triangle">
-                <a href="/calculate/triangle/">
-                <img src="/static/images/triangle.png" alt="Trójkąt">
-                <br>Trójkąt</a>
-            </div>
+        <div id="cylinder">
+            <a href="/calculate/cylinder/">
+            <img src="/static/images/cylinder.png" alt="Walec">
+            <br>Walec</a>
+        </div>
 
-            <div class="" data-figure="slab">
-                <a href="/calculate/slab/">
-                <img src="/static/images/slab.png" alt="Płyta z wgłębieniem">
-                <br>Płyta z wgłębieniem</a>
-            </div>
+        <div id="triangle">
+            <a href="/calculate/triangle/">
+            <img src="/static/images/triangle.png" alt="Trójkąt">
+            <br>Trójkąt</a>
+        </div>
 
-            <div class="" data-figure="stairs">
-                <a href="/calculate/stairs/">
-                <img src="/static/images/stairs.png" alt="Schody">
-                <br>Schody</a>
-            </div>
+        <div id="slab">
+            <a href="/calculate/slab/">
+            <img src="/static/images/slab.png" alt="Płyta z wgłębieniem">
+            <br>Płyta z wgłębieniem</a>
+        </div>
+
+        <div id="stairs">
+            <a href="/calculate/stairs/">
+            <img src="/static/images/stairs.png" alt="Schody">
+            <br>Schody</a>
+        </div>
+
+        <div id="type_value">
+            <a href="/calculate/type_value/">
+            <img src="/static/images/type_value.png" alt="Wpisz wartość">
+            <br>Podaj wartość</a>
         </div>
     </div>
 
-<!--    <div class="calc_dimensions">-->
-<!--        <h4>Podaj wymiary</h4>-->
-
-<!--        <div id="calc_form">-->
-<!--            <form action="" method="post">-->
-<!--                {% csrf_token %}-->
-<!--                <div class="rectangular footing triangle slab stairs" style="display: block">-->
-<!--                    <label> X <input type="number" min="0.00" step="0.1" placeholder="Szerokość [m]" name="X"></label>-->
-<!--                </div>-->
-<!--                <div class="rectangular footing cylinder triangle slab stairs">-->
-<!--                    <label> Y <input type="number" min="0.00" step="0.1" placeholder="Długość [m]" name="Y"></label>-->
-<!--                </div>-->
-<!--                <div class="rectangular triangle slab stairs">-->
-<!--                    <label> Z <input type="number" min="0.00" step="0.1" placeholder="Wysokość [m]" name="Z"></label>-->
-<!--                </div>-->
-<!--                <div class="cylinder">-->
-<!--                    <label> R <input type="number" min="0.00" step="0.1" placeholder="Promień [m]" name="R"></label>-->
-<!--                </div>-->
-<!--                <div class="slab stairs">-->
-<!--                    <label> W <input type="number" min="0.00" step="0.1" placeholder="Szerokość [m]" name="W"></label>-->
-<!--                </div>-->
-<!--                <div class="slab">-->
-<!--                    <label> H <input type="number" min="0.00" step="0.1" placeholder="Wysokość [m]" name="H"></label>-->
-<!--                </div>-->
-<!--                <div class="stairs">-->
-<!--                    <label> V <input type="number" min="0.00" step="0.1" placeholder="Liczba stopnii [m]" name="V"></label>-->
-<!--                </div>-->
-<!--                <div class="slab">-->
-<!--                    <label> T <input type="number" min="0.00" step="0.1" placeholder="Długść płyty [m]" name="T"></label>-->
-<!--                </div>-->
-
-<!--                <input type="submit" value="Oblicz">-->
-
-<!--            </form>-->
-
-<!--        </div>-->
-<!--    </div>-->
-
-
-
-
+    <br><br><br><br>
+    <h1>Galeria zdjęć, gdzie zamawiany był nasz beton</h1>
+    <div class="gallery">
+        <a href="../static/images/Beton1.jpg">
+            <img src="../static/images/Beton1.jpg"</a>
+        <a href="../static/images/Beton2.jpg">
+            <img src="../static/images/Beton2.jpg"</a>
+        <a href="../static/images/Beton3.jpg">
+            <img src="../static/images/Beton3.jpg"</a>
+        <a href="../static/images/Beton4.jpg">
+            <img src="../static/images/Beton4.jpg"</a>
+        <a href="../static/images/Beton5.jpg">
+            <img src="../static/images/Beton5.jpg"</a>
+        <a href="../static/images/Beton11.jpg">
+            <img src="../static/images/Beton11.jpg"</a>
+        <a href="../static/images/Beton12.jpg">
+            <img src="../static/images/Beton12.jpg"</a>
+    </div>
 </div>
 
 
-<h1> {{ result }}</h1>
+
 
 {% endblock %}
-
-<!--<script src="static/js/shape.js"></script>-->
-</body>
-</html>

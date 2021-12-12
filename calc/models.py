@@ -77,3 +77,6 @@ class List(models.Model):
     legal_name = models.CharField(max_length=150, null=True, verbose_name='Imię i nazwisko')
     comment = models.TextField(null=True, verbose_name='Komentarz')
     created_date = models.DateTimeField(null=True, auto_now_add=True, verbose_name='Utworzono')
+    phone = models.IntegerField(verbose_name='Telefon', null=True)
+    # required
+    # pompa  do betonu

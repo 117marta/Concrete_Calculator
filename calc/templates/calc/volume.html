@@ -1,48 +1,36 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Volume</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
-<body>
-
 {% extends 'calc/base.html' %}
 {% block content %}
 
 
-<!--<div class="bar">-->
-<!--    <a href="/"> <button class="btn">Strona główna</button> </a>-->
-<!--    <a href="/concrete/"> <button class="btn">Wybierz rodzaj betonu i zastosowanie</button> </a>-->
-<!--    <a href="/contact/"> <button class="btn">Kontakt</button> </a>-->
-<!--</div>-->
-<!--<br><br>-->
+<div class="calculatororder_container">
 
-<h3>Wypełnij dane w poniższym formularzu</h3>
+    <h1>Wypełnij formularz</h1>
+    <br>
 
-<div class="form_div">
-    <form method="post" class="form_volume">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Oblicz >>" class="form_btn">
-    </form>
+    <p class="p_description">Podaj wszystkie niezbędne cechy figury do obliczenia objętości betonu.
+        Należy pamiętać, że dane mają charakter jedynie poglądowy.</p>
+    <br><br><br>
+
+
+    <div class="volume_form_div">
+        <form method="post" class="volume_form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Oblicz >>" class="form_btn">
+        </form>
+    </div>
+    <br>
+
+    <div class="result">
+    <!--<h3>Objętość betonu: {{ result }} m<sup>3</sup>.</h3>-->
+    <h3>{{ output }} </h3>
+    </div>
+
+    <br>
+    {{ get_id }}
+    {{ result }}
+
 </div>
-<br>
-
-<div class="result">
-<!--<h3>Objętość betonu: {{ result }} m<sup>3</sup>.</h3>-->
-<h3>{{ output }} </h3>
-</div>
-
-<br>
-{{ get_id }}
-
 
 
 {% endblock %}
-
-</body>
-</html>
