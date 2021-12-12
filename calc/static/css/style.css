@@ -17,12 +17,18 @@ header {
     padding: 15px;
     margin: 5px;
     align-items: center;
-    border-radius: 30px;
+    border-radius: 40px;
 }
 
 .base_bar, .base_login{
     border: 1px solid black;
     margin: 0;
+}
+
+.base_logo img {
+    border: 1px solid black;
+    height: 4em;
+    width: auto;
 }
 
 .base_login a {
@@ -34,6 +40,7 @@ header {
     padding: 3px;
     box-shadow: black -1px 1px 1px;
     border: black solid 1px;
+    font-size: 15px;
 }
 
 .btn {
@@ -87,7 +94,7 @@ header {
     text-align: center;
     font-weight: bold;
     margin: 10px;
-    border: cornflowerblue 1px dashed;
+    /*border: cornflowerblue 1px dashed;*/
     /*justify-content: space-around;*/
     /*justify-content: space-between;*/
 }
@@ -95,7 +102,7 @@ header {
 .shape_figure div:hover {
     color: deeppink;
     background-color: white;
-    border-radius: 15px;
+    /*border-radius: 15px;*/
     box-shadow: 0px 0px 20px yellow;
     cursor: pointer;
     transition: 0.5s;
