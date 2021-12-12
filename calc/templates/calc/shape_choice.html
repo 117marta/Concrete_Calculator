@@ -1,3 +1,5 @@
+<title>Strona główna</title>
+
 {% extends 'calc/base.html' %}
 {% block content %}
 
@@ -6,7 +8,7 @@
 <div class="shape_container">
 
     <div class="shape_description">
-        <h1>Witamy w firmie Marta-Beton</h1>
+        <h1>Witamy w firmie "Marta Beton"</h1>
         <p class="p_description">Po prawie 30 latach jesteśmy liderami na rynku budowlanym w produkcji materiałów budowlanych na polskim rynku.
             Nasza produkcja obejmuje głównie cement, kruszywa i beton. Wszystko to wyłącznie z lokalnych surowców.
             Łączymy dostawę betonu z szeroką gamą naszych pozostałych usług, dzięki czemu zapewniamy skuteczne rozwiązanie dla twojego projektu.</p>
@@ -18,78 +20,100 @@
             Produkujemy także beton na życzenie klienta, zgodnie z wymaganiami i specyfikacją odbiorcy.
         </p>
 
-        <h3>Wybierz interesujący Cię kształt, wypełnij dane, a następnie kliknij OBLICZ.</h3>
-        <h3>Należy pamiętać, że obliczenia mają charakter poglądowy. Do dokładnej ilości zamówienia konieczne jest
-        sprawdzenie ilości zbrojenia oraz uwzględnienie odpowiedniego zapasu betonu.</h3>
         <br>
+        <h1>Zamówienie betonu</h1>
+        <p class="p_description">Aby zamówić nasz beton, przejdź do <a href="/calculate/">kalkulatora objętości</a>,
+            wypełnij formularz, a następnie skontaktuj się z naszą infolinią (tel: 600-700-800) w celu ustalenia szczegółów.</p>
+
+<!--        <h3>Wybierz interesujący Cię kształt, wypełnij dane, a następnie kliknij OBLICZ.</h3>-->
+<!--        <h3>Należy pamiętać, że obliczenia mają charakter poglądowy. Do dokładnej ilości zamówienia konieczne jest-->
+<!--        sprawdzenie ilości zbrojenia oraz uwzględnienie odpowiedniego zapasu betonu.</h3>-->
+<!--        <br>-->
     </div>
 
-    <h4>Wybierz kształt</h4>
+<!--    <h4>Wybierz kształt</h4>-->
 
-    <div class="shape_figure">
+<!--    <div class="shape_figure">-->
 
 
-        <div id="rectangle">
-            <a href="/calculate/rectangle/">
-            <img src="/static/images/rectangle.png" alt="Płyta fundamentowa">
-            <br>Płyta fundamentowa</a>
-        </div>
+<!--        <div id="rectangle">-->
+<!--            <a href="/calculate/rectangle/">-->
+<!--            <img src="/static/images/rectangle.png" alt="Płyta fundamentowa">-->
+<!--            <br>Płyta fundamentowa</a>-->
+<!--        </div>-->
 
-        <div id="footing">
-            <a href="/calculate/footing/">
-            <img src="/static/images/footing.png" alt="Ława fundamentowa">
-            <br>Ława fundamentowa</a>
+<!--        <div id="footing">-->
+<!--            <a href="/calculate/footing/">-->
+<!--            <img src="/static/images/footing.png" alt="Ława fundamentowa">-->
+<!--            <br>Ława fundamentowa</a>-->
 
-        </div>
+<!--        </div>-->
 
-        <div id="cylinder">
-            <a href="/calculate/cylinder/">
-            <img src="/static/images/cylinder.png" alt="Walec">
-            <br>Walec</a>
-        </div>
+<!--        <div id="cylinder">-->
+<!--            <a href="/calculate/cylinder/">-->
+<!--            <img src="/static/images/cylinder.png" alt="Walec">-->
+<!--            <br>Walec</a>-->
+<!--        </div>-->
 
-        <div id="triangle">
-            <a href="/calculate/triangle/">
-            <img src="/static/images/triangle.png" alt="Trójkąt">
-            <br>Trójkąt</a>
-        </div>
+<!--        <div id="triangle">-->
+<!--            <a href="/calculate/triangle/">-->
+<!--            <img src="/static/images/triangle.png" alt="Trójkąt">-->
+<!--            <br>Trójkąt</a>-->
+<!--        </div>-->
 
-        <div id="slab">
-            <a href="/calculate/slab/">
-            <img src="/static/images/slab.png" alt="Płyta z wgłębieniem">
-            <br>Płyta z wgłębieniem</a>
-        </div>
+<!--        <div id="slab">-->
+<!--            <a href="/calculate/slab/">-->
+<!--            <img src="/static/images/slab.png" alt="Płyta z wgłębieniem">-->
+<!--            <br>Płyta z wgłębieniem</a>-->
+<!--        </div>-->
 
-        <div id="stairs">
-            <a href="/calculate/stairs/">
-            <img src="/static/images/stairs.png" alt="Schody">
-            <br>Schody</a>
-        </div>
+<!--        <div id="stairs">-->
+<!--            <a href="/calculate/stairs/">-->
+<!--            <img src="/static/images/stairs.png" alt="Schody">-->
+<!--            <br>Schody</a>-->
+<!--        </div>-->
 
-        <div id="type_value">
-            <a href="/calculate/type_value/">
-            <img src="/static/images/type_value.png" alt="Wpisz wartość">
-            <br>Podaj wartość</a>
-        </div>
-    </div>
+<!--        <div id="type_value">-->
+<!--            <a href="/calculate/type_value/">-->
+<!--            <img src="/static/images/type_value.png" alt="Wpisz wartość">-->
+<!--            <br>Podaj wartość</a>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
 
     <br><br><br><br>
-    <h1>Galeria zdjęć, gdzie zamawiany był nasz beton</h1>
+    <h1>Zdjęcia naszego węzła betoniarskiego</h1>
+    <div class="gallery">
+        <a href="../static/images/Wezel1.jpg">
+            <img src="../static/images/Wezel1.jpg"></a>
+        <a href="../static/images/Wezel2.jpg">
+            <img src="../static/images/Wezel2.jpg"></a>
+        <a href="../static/images/Wezel3.jpg">
+            <img src="../static/images/Wezel3.jpg"></a>
+    </div>
+
+
+
+    <br><br><br><br>
+    <h1>Galeria zdjęć, gdzie wykorzystywany był nasz beton</h1>
     <div class="gallery">
         <a href="../static/images/Beton1.jpg">
-            <img src="../static/images/Beton1.jpg"</a>
+            <img src="../static/images/Beton1.jpg"></a>
         <a href="../static/images/Beton2.jpg">
-            <img src="../static/images/Beton2.jpg"</a>
+            <img src="../static/images/Beton2.jpg"></a>
         <a href="../static/images/Beton3.jpg">
-            <img src="../static/images/Beton3.jpg"</a>
+            <img src="../static/images/Beton3.jpg"></a>
         <a href="../static/images/Beton4.jpg">
-            <img src="../static/images/Beton4.jpg"</a>
+            <img src="../static/images/Beton4.jpg"></a>
         <a href="../static/images/Beton5.jpg">
-            <img src="../static/images/Beton5.jpg"</a>
+            <img src="../static/images/Beton5.jpg"></a>
         <a href="../static/images/Beton11.jpg">
-            <img src="../static/images/Beton11.jpg"</a>
+            <img src="../static/images/Beton11.jpg"></a>
         <a href="../static/images/Beton12.jpg">
-            <img src="../static/images/Beton12.jpg"</a>
+            <img src="../static/images/Beton12.jpg"></a>
+        <a href="../static/images/Beton13.jpg">
+            <img src="../static/images/Beton13.jpg"></a>
     </div>
 </div>
 

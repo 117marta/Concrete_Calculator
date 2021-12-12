@@ -1,0 +1,84 @@
+{% extends 'calc/base.html' %}
+{% block content %}
+
+
+
+<div class="shape_container">
+
+<h1>Zamów beton</h1>
+    <p class="p_description">Aby zamówić beton wybierz kształt i oblicz objętość za pomocą naszego kalkulatora.<br>
+        Możesz też od razu podać wyliczoną wartość objętości betonu.
+    </p>
+
+
+    <div class="shape_figure">
+
+
+        <div id="rectangle">
+            <a href="/calculate/rectangle/">
+            <img src="/static/images/rectangle.png" alt="Płyta fundamentowa">
+            <br>Płyta fundamentowa</a>
+        </div>
+
+        <div id="footing">
+            <a href="/calculate/footing/">
+            <img src="/static/images/footing.png" alt="Ława fundamentowa">
+            <br>Ława fundamentowa</a>
+
+        </div>
+
+        <div id="cylinder">
+            <a href="/calculate/cylinder/">
+            <img src="/static/images/cylinder.png" alt="Walec">
+            <br>Walec</a>
+        </div>
+
+        <div id="triangle">
+            <a href="/calculate/triangle/">
+            <img src="/static/images/triangle.png" alt="Trójkąt">
+            <br>Trójkąt</a>
+        </div>
+
+        <div id="slab">
+            <a href="/calculate/slab/">
+            <img src="/static/images/slab.png" alt="Płyta z wgłębieniem">
+            <br>Płyta z wgłębieniem</a>
+        </div>
+
+        <div id="stairs">
+            <a href="/calculate/stairs/">
+            <img src="/static/images/stairs.png" alt="Schody">
+            <br>Schody</a>
+        </div>
+
+        <div id="type_value">
+            <a href="/calculate/type_value/">
+            <img src="/static/images/type_value.png" alt="Wpisz wartość">
+            <br>Podaj wartość</a>
+        </div>
+    </div>
+
+<!--    <br><br><br><br>-->
+<!--    <h1>Galeria zdjęć, gdzie zamawiany był nasz beton</h1>-->
+<!--    <div class="gallery">-->
+<!--        <a href="../static/images/Beton1.jpg">-->
+<!--            <img src="../static/images/Beton1.jpg"</a>-->
+<!--        <a href="../static/images/Beton2.jpg">-->
+<!--            <img src="../static/images/Beton2.jpg"</a>-->
+<!--        <a href="../static/images/Beton3.jpg">-->
+<!--            <img src="../static/images/Beton3.jpg"</a>-->
+<!--        <a href="../static/images/Beton4.jpg">-->
+<!--            <img src="../static/images/Beton4.jpg"</a>-->
+<!--        <a href="../static/images/Beton5.jpg">-->
+<!--            <img src="../static/images/Beton5.jpg"</a>-->
+<!--        <a href="../static/images/Beton11.jpg">-->
+<!--            <img src="../static/images/Beton11.jpg"</a>-->
+<!--        <a href="../static/images/Beton12.jpg">-->
+<!--            <img src="../static/images/Beton12.jpg"</a>-->
+<!--    </div>-->
+</div>
+
+
+
+
+{% endblock %}
