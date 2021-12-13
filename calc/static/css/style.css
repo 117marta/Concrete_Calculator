@@ -14,14 +14,14 @@ header {
     /*background-color: coral;*/
     display: flex;
     justify-content: space-between;
-    padding: 15px;
+    padding: 20px;
     margin: 5px;
     align-items: center;
-    border-radius: 40px;
+    border-radius: 70px;
 }
 
 .base_bar, .base_login{
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     margin: 0;
 }
 
@@ -34,7 +34,6 @@ header {
 .base_login a {
     text-decoration: none;
     color: white;
-    /*background-color: yellowgreen;*/
     background: linear-gradient(120deg, rgba(128, 0, 128, 0.3) 0%, rgba(128, 0, 128, 1) 50%);
     border-radius: 5px;
     padding: 3px;
@@ -58,13 +57,7 @@ header {
 
 /* ################################################################################################################## */
 
-.p_description {
-    line-height: 25pt;
-    font-size: 20px;
-    /*color: blueviolet;*/
-}
-
-.shape_container {
+.index_container {
     box-sizing: border-box;
     background-color: rgba(200, 200, 0, 0.9);
     box-shadow: 0px 0px 30px;
@@ -72,53 +65,6 @@ header {
     padding: 50px;
     width: 80%;
 }
-
-.shape_figure {
-    /*position: absolute;*/
-    border: 3px dotted blueviolet;
-    background-color: rgba(128, 128, 128, 0.9);
-    display: flex;
-    flex-wrap: wrap;
-
-    /*flex-direction: row;*/
-    /*overflow-x: auto;*/
-
-    justify-content: space-around;
-}
-
-.shape_figure img {
-    height: 300px;
-}
-
-.shape_figure div {
-    text-align: center;
-    font-weight: bold;
-    margin: 10px;
-    /*border: cornflowerblue 1px dashed;*/
-    /*justify-content: space-around;*/
-    /*justify-content: space-between;*/
-}
-
-.shape_figure div:hover {
-    color: deeppink;
-    background-color: white;
-    /*border-radius: 15px;*/
-    box-shadow: 0px 0px 20px yellow;
-    cursor: pointer;
-    transition: 0.5s;
-}
-
-
-.shape_figure a {
-    text-decoration: none;
-    color: blue;
-}
-
-.shape_figure a:hover {
-    text-decoration: none;
-    color: crimson;
-}
-
 
 .gallery {
     display: flex;
@@ -143,27 +89,95 @@ header {
     filter: grayscale(1);
 }
 
+/* ################################################################################################################## */
 
+.p_description {
+    line-height: 25pt;
+    font-size: 20px;
+    /*color: blueviolet;*/
+}
+
+.shape_container {
+    box-sizing: border-box;
+    background-color: rgba(128, 0, 128, 0.9);
+    box-shadow: 0px 0px 30px;
+    margin: 0 auto;
+    padding: 50px;
+    width: 80%;
+}
+
+.shape_figure {
+    border: 3px dotted blueviolet;
+    background-color: rgba(128, 128, 128, 0.9);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /*flex-direction: row;*/
+    /*overflow-x: auto;*/
+}
+
+.shape_figure img {
+    height: 350px;
+}
+
+.shape_figure div {
+    text-align: center;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.shape_figure div:hover {
+    color: deeppink;
+    background-color: white;
+    /*border-radius: 15px;*/
+    /*box-shadow: 0px 0px 20px yellow;*/
+    box-shadow: 0px 0px 40px rgba(128, 0, 128, 0.9);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+.shape_figure a {
+    text-decoration: none;
+    color: rgba(0, 255, 200);
+}
+
+.shape_figure a:hover {
+    text-decoration: none;
+    color: crimson;
+}
 
 /* ################################################################################################################## */
 
 .error {
     color:red;
+    background-color: white;
+    text-align: center;
+    /*padding: 50px;*/
+    margin: 50px;
+    box-shadow: 0px 0px 50px red;
 }
 
 /* ################################################################################################################## */
 
-.container {
+.contact_container {
     box-sizing: border-box;
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0px 0px 30px;
     margin: 0 auto;
     padding: 50px;
     width: 80%;
+}
 
-    /*max-width: 90%;*/
-    /*color: yellow;*/
-    /*line-height: 1.5em;*/
+.contact_location {
+    background-color: rgba(255, 0, 0, 0.9);
+    width: 200px;
+    height: 200px;
+    padding: 50px;
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
 }
 
 .contact {
@@ -229,12 +243,13 @@ header {
 
 .summary {
     background: white;
-    /*display: inline-block;*/
+    display: inline-block;
     /*justify-content: center;*/
-    width: 60%;
+    /*width: 60%;*/
     /*margin: 0 auto;*/
-    display: flex;
+    /*display: flex;*/
     justify-content: space-around;
+    padding: 50px;
 }
 
 .summary_concrete {
@@ -253,10 +268,10 @@ header {
 }
 
 .summary_ul {
-    /*background: yellow;*/
     list-style: none;
     line-height: 40px;
     margin: auto;
+    padding: 0px;
 }
 
 
@@ -266,22 +281,6 @@ header {
     display: inline-block;
     margin-right: 10px;
 }
-
-/*.summary_ul li:before {*/
-/*    position: absolute;*/
-/*    display: inline-block;*/
-/*    content: counter(line);*/
-/*    left: 20px;*/
-/*    background-color: red;*/
-/*    color: pink;*/
-/*    width: 20px;*/
-/*    height: 20px;*/
-/*    border-radius: 50%;*/
-/*    text-align: center;*/
-/*    counter-increment: line;*/
-/*    vertical-align: middle;*/
-/*    line-height: normal;*/
-/*}*/
 
 
 /* ################################################################################################################## */

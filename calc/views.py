@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .forms import ShapeChoiceForm, RectangularForm, FootingForm, CylinderForm, TriangleForm, SlabForm, StairsForm, TypeValueForm, ConcreteForm, UseForm, LoginForm, RegisterForm
+from .forms import RectangularForm, FootingForm, CylinderForm, TriangleForm, SlabForm, StairsForm, TypeValueForm, ConcreteForm, LoginForm, RegisterForm
 from .models import Use, Concrete, Person, Day, List
 from math import pi, sqrt
 from django.contrib.auth.models import User
@@ -13,22 +13,22 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 
 
 #########################################################################################################################
-class ShapeView(View):
-    def get(self, request):
-        form = ShapeChoiceForm()
-        return render(request, 'calc/shape.html', {'form': form})
+# class ShapeView(View):
+#     def get(self, request):
+#         form = ShapeChoiceForm()
+#         return render(request, 'calc/shape.html', {'form': form})
 
 
-class ShapeChoiceView(View):
-    def get(self, request):
-        return render(request, 'calc/shape_choice.html')
+# class ShapeChoiceView(View):
+#     def get(self, request):
+#         return render(request, 'calc/index.html')
     # def post(self, request):
     #     X = float(request.POST.get('X'))
     #     Y = float(request.POST.get('Y'))
     #     Z = float(request.POST.get('Z'))
     #     # R = int(request.POST.get('R'))
     #     result = f'Objętość betonu: {round((X * Y * Z), 1)} m3'
-    #     return render(request, 'calc/shape_choice.html', {'result': result})
+    #     return render(request, 'calc/index.html', {'result': result})
 
 
 #########################################################################################################################
@@ -170,6 +170,8 @@ class TypeValue(View):
             new_object = List.objects.create(shape='-', volume=result)
             # return render(request, 'calc/volume.html', {'form': form, 'result': result})
             return redirect(f'/concrete/{new_object.id}')
+        else:
+            return render(request, 'calc/volume.html', {'form': form})
 
 
 class ConcreteView(View):
@@ -185,15 +187,16 @@ class ConcreteView(View):
             form_concrete = form.cleaned_data['form_concrete']
             form_legal_name = form.cleaned_data['form_legal_name']
             form_phone = form.cleaned_data['form_phone']
+            form_concrete_pomp = form.cleaned_data['form_concrete_pomp']
             form_comment = form.cleaned_data['form_comment']
             add_data = List.objects.get(pk=id)
             add_data.concrete = form_concrete.name
             add_data.use_of_concrete = form_use.name
             add_data.legal_name = form_legal_name
             add_data.phone = form_phone
+            add_data.concrete_pomp = form_concrete_pomp
             add_data.comment = form_comment
             add_data.save()
-            # result = f'ID zastosowania: {form_use.id} // \n ID betonu: {form_concrete.id}'
             return redirect(f'/summary/{add_data.pk}')
         else:
             return render(request, 'calc/concrete.html', {'form': form})
@@ -226,28 +229,6 @@ class SummaryView(View):
         return render(request, 'calc/summary.html', {'summary': summary})
 
 
-
-
-
-
-# class ConcreteView(View):
-#     def get(self, request):
-#         form = ConcreteForm
-#         return render(request, 'calc/concrete.html', {'form': form})
-#     def post(self, request):
-#         form = ConcreteForm(request.POST)
-#         if form.is_valid():
-#             form_use = form.cleaned_data['form_use']
-#             form_select = Concrete.objects.filter(id=form_use.id)
-#             form_concrete = form.cleaned_data['form_concrete']
-#             result = f'ID zastosowania: {form_use.id}'
-#             return render(request, 'calc/concrete.html', {'form': form, 'result': result})
-#         else:
-#             return render(request, 'calc/concrete.html', {'form': form})
-
-
-
-
 class ContactView(View):
     """Displays when employees can be contacted."""
     def get(self, request):
@@ -258,9 +239,9 @@ class ContactView(View):
         pass
 
 
-class ListUsersView(View):
-    def get(self, request):
-        users = Person.objects.all()
+# class ListUsersView(View):
+#     def get(self, request):
+#         users = Person.objects.all()
 
 
 class LoginView(View):
@@ -306,9 +287,7 @@ class RegisterView(View):
             return render(request, 'calc/register.html', {'form': form})
 
 
-# przechodzi testy, ale bez 'permission'
 class AddConcreteView(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
-# class AddConcreteView(SuccessMessageMixin, CreateView):
     """Add new concrete to the database - only by an authorizated user."""
     permission_required = 'calc.add_concrete'
     model = Concrete
@@ -317,13 +296,6 @@ class AddConcreteView(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     success_url = '/add_concrete/'
 
 
-# class AddConcreteView2(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
-#     """Add new concrete to database."""
-#     permission_required = 'calc.add_concrete'
-#     model = Concrete
-#     fields = '__all__'
-#     success_message = 'Dodano beton <b> %(name)s </b> do bazy!'
-#     success_url = '/add_concrete/'
 
 
 
