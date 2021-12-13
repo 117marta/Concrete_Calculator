@@ -1,12 +1,10 @@
 from django.db import models
+# from phonenumber_field.modelfields import PhoneNumberField
+
 
 # Create your models here.
 
 
-# class Shape(models.Model):
-#     name = models.CharField(max_length=50)
-#
-#
 # class Dimensions(models.Model):
 #     X = models.FloatField(max_length=5, verbose_name='X:')
 #     Y = models.FloatField(max_length=5, verbose_name='Y:')
@@ -20,14 +18,23 @@ from django.db import models
 
 
 class Concrete(models.Model):
+    """
+    Stores a types and a descriptions of concrete.
+    """
     name = models.CharField(max_length=50, unique=True, verbose_name='Beton:')
     description = models.CharField(max_length=256, verbose_name='Opis')
 
     def __str__(self):
+        """
+        Returns "people-friendly" name of concrete.
+        """
         return self.name
 
 
 class Use(models.Model):
+    """
+    Stores uses of concrete. Related to :model:'calc.Use'.
+    """
     name = models.CharField(max_length=100, unique=True, verbose_name='Zastosowanie')
     conc = models.ManyToManyField(Concrete, related_name='uses')
 
@@ -35,9 +42,10 @@ class Use(models.Model):
         return self.name
 
 
-
-
 class Person(models.Model):
+    """
+    Stores employees' identities.
+    """
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
@@ -47,6 +55,9 @@ class Person(models.Model):
 
 
 class Day(models.Model):
+    """
+    Stores the days of the week and the employees' shifts. Related to :model:'calc.Person'.
+    """
     DAYS = (
         (1, 'Poniedziałek'),
         (2, 'Wtorek'),
@@ -70,13 +81,17 @@ class Day(models.Model):
 
 
 class List(models.Model):
+    """
+    Stores a customers' final orders.
+    """
     shape = models.CharField(max_length=50, verbose_name='Kształt')
     volume = models.FloatField(null=True, verbose_name='Objętość')
     concrete = models.CharField(max_length=50, verbose_name='Beton')
     use_of_concrete = models.CharField(max_length=100, verbose_name='Zastosowanie')
     legal_name = models.CharField(max_length=150, null=True, verbose_name='Imię i nazwisko')
+    phone = models.CharField(max_length=15, verbose_name='Telefon', null=True)
+    # phone = PhoneNumberField(verbose_name='Telefon')
+    concrete_pomp = models.BooleanField(null=True, verbose_name='Pompa do betonu')
     comment = models.TextField(null=True, verbose_name='Komentarz')
     created_date = models.DateTimeField(null=True, auto_now_add=True, verbose_name='Utworzono')
-    phone = models.IntegerField(verbose_name='Telefon', null=True)
-    # required
-    # pompa  do betonu
+
