@@ -9,15 +9,21 @@
     <div class="summary">
         <ul class="summary_ul">
             <div class="summary_concrete">
-            Beton:
+                <strong>Beton:</strong>
                 <li>Beton: {{ summary.concrete }}</li>
                 <li>Objętość: {{ summary.volume }} m<sup>3</sup></li>
+                <li>Pompa do betonu:
+                    {% if summary.concrete_pomp == True %} Tak
+                    {% elif summary.concrete_pomp  == False %} Nie
+                    {% else %} Nie zdefiniowano
+                    {% endif %}
+                </li>
                 <li>Zastosowanie: {{ summary.use_of_concrete }}</li>
                 <li>Kształt: {{ summary.shape }}</li>
             </div>
             <br>
             <div class="summary_contact">
-            Dane kontaktowe:
+                <strong>Dane kontaktowe:</strong>
                 <li>Imię i nazwisko: {{ summary.legal_name }}</li>
                 <li>Komentarz do zamówienia: {{ summary.comment }}</li>
                 <li>Utworzono: {{ summary.created_date|date:'Y-m-d, l, H:i:s' }}</li>
@@ -25,7 +31,8 @@
         </ul>
     </div>
 
-    <p>Pamiętaj, aby przy zamówieniu zapewnić prawidłowy dojazd dla pojazdów.
+    <br><br><br><br>
+    <p class="p_description">Pamiętaj, aby przy zamówieniu zapewnić prawidłowy dojazd dla pojazdów.
         W przypadku użycia pompy do betonu konieczne będzie także wygospodarowanie większej przestrzeni.</p>
 
 </div>

@@ -15,15 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from calc.views import ShapeChoiceView, ShapeView, RectangularView, FootingView, CylinderView, TypeValue, \
+from calc.views import RectangularView, FootingView, CylinderView, TypeValue, \
     TriangleView, SlabView, StairsView, ConcreteView, ContactView, \
     LoginView, LogoutView, RegisterView, AddConcreteView, SummaryView
 from django.views.generic import TemplateView
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', ShapeChoiceView.as_view()),
-    path('shape/', ShapeView.as_view()),
+    path('', TemplateView.as_view(template_name='calc/index.html')),
+    # path('shape/', ShapeView.as_view()),
     path('calculate/', TemplateView.as_view(template_name='calc/calculate.html')),
     path('calculate/rectangle/', RectangularView.as_view()),
     path('calculate/footing/', FootingView.as_view()),
