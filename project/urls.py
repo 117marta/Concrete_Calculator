@@ -39,6 +39,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view()),
     path('register/', RegisterView.as_view()),
     path('add_concrete/', AddConcreteView.as_view(), name='add-concrete'),
-    path('concrete/<int:id>', ConcreteView.as_view()),
-    path('summary/<int:id>', SummaryView.as_view()),
+    path('concrete/<int:id>/', ConcreteView.as_view()),
+    path('summary/<int:id>/', SummaryView.as_view()),
 ]

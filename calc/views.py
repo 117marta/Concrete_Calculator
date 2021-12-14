@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .forms import RectangularForm, FootingForm, CylinderForm, TriangleForm, SlabForm, StairsForm, TypeValueForm, ConcreteForm, LoginForm, RegisterForm
+from .forms import RectangleForm, FootingForm, CylinderForm, TriangleForm, SlabForm, StairsForm, TypeValueForm, ConcreteForm, LoginForm, RegisterForm
 from .models import Use, Concrete, Person, Day, List
 from math import pi, sqrt
 from django.contrib.auth.models import User
@@ -36,10 +36,10 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 
 class RectangularView(View):
     def get(self, request):
-        form = RectangularForm()
+        form = RectangleForm()
         return render(request, 'calc/volume.html', {'form': form})
     def post(self, request):
-        form = RectangularForm(request.POST)
+        form = RectangleForm(request.POST)
         if form.is_valid():
             X = form.cleaned_data['X']
             Y = form.cleaned_data['Y']
@@ -175,7 +175,11 @@ class TypeValue(View):
 
 
 class ConcreteView(View):
-    """Allows to choose the type of concrete and its uses."""
+    """Allows to choose the type of concrete and its uses.
+    :param request:
+    :param id:
+    :return summary page:
+    """
     def get(self, request, id):
         form = ConcreteForm(initial={'form_use': 5, 'form_concrete': 3})
         get_id = List.objects.get(pk=id)
@@ -230,13 +234,14 @@ class SummaryView(View):
 
 
 class ContactView(View):
-    """Displays when employees can be contacted."""
+    """Displays when employees can be contacted.
+    :param request:
+    :return employees contact page:
+    """
     def get(self, request):
         persons_in_work = Person.objects.all().order_by('first_name', 'last_name')
         days_of_work = Day.objects.all().order_by('day', 'hour')
         return render(request, 'calc/contact.html', {'persons_in_work': persons_in_work, 'days_of_work': days_of_work})
-    def post(self, request):
-        pass
 
 
 # class ListUsersView(View):

@@ -1,6 +1,20 @@
-from calc.models import Concrete, Use, Person, Day
+from calc.models import Concrete, Use, Person, Day, List
 import pytest
 from django.contrib.auth.models import User, Permission
+import datetime
+import pytz
+
+
+
+
+@pytest.fixture()
+def add_rectangle():
+    return List.objects.create(
+        shape='Płyta_fund',
+        volume=5,
+    )
+
+
 
 
 # Dodanie nowego betonu do BD - OK (bez permission)
@@ -20,7 +34,7 @@ def add_concrete():
 
 # Osoby w CONTACT alfabetycznie
 @pytest.fixture
-def contact_four_person():
+def contact_four_persons():
     return [
         Person.objects.create(first_name="Katarzyna", last_name='Broda', description='Sekretarka'),
         Person.objects.create(first_name="Zdzisław", last_name='Żuk', description='Majster'),
@@ -39,3 +53,17 @@ def user_with_permission():
     return u
 
 
+# SUMMARY
+@pytest.fixture
+def summary_show():
+    return List.objects.create(
+        shape='Kształt',
+        volume=1234,
+        concrete='C30/37',
+        use_of_concrete='Fundamenty',
+        created_date='',
+        comment='Kozia Wólka 521',
+        legal_name='Kamil Chrzanowski',
+        phone='500600700',
+        concrete_pomp=True,
+    )

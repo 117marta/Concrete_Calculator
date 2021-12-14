@@ -19,7 +19,7 @@ from django.core.validators import URLValidator, validate_email, ValidationError
 
 
 # FIGURY
-class RectangularForm(forms.Form):  # Płyta fundamentowa
+class RectangleForm(forms.Form):  # Płyta fundamentowa
     X = forms.FloatField(label='X:', widget=forms.TextInput(attrs={'placeholder': 'Długość [m]'}), min_value=0, error_messages={'min_value': 'Wpisz liczbę dodatnią!'})
     Y = forms.FloatField(label='Y:', widget=forms.TextInput(attrs={'placeholder': 'Szerokość [m]'}), min_value=0, error_messages={'min_value': 'Wpisz liczbę dodatnią!'})
     Z = forms.FloatField(label='Z:', widget=forms.TextInput(attrs={'placeholder': 'Wysokość [m]'}), min_value=0, error_messages={'min_value': 'Wpisz liczbę dodatnią!'})
@@ -68,7 +68,7 @@ class ConcreteForm(forms.Form):
     form_use = forms.ModelChoiceField(queryset=Use.objects.all(), label='Zastosowanie')
     form_concrete = forms.ModelChoiceField(queryset=Concrete.objects.all(), label='Beton')
     form_legal_name = forms.CharField(max_length=150, label='Imię i Nazwisko')
-    form_phone = forms.IntegerField(label='Telefon')
+    form_phone = forms.CharField(max_length=15, label='Telefon')
     form_concrete_pomp = forms.BooleanField(label='Pompa do betonu', required=False)
     form_comment = forms.CharField(widget=forms.Textarea, label='Komentarz do zamówienia')
     # form_concrete_pomp = forms.BooleanField(label='Pompa do betonu', widget=forms.RadioSelect(choices=((False, 'NIE'), (True, 'TAK'))))

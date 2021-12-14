@@ -10,6 +10,18 @@
     </form>
 </div>
 
+---------------------------------- <br><br>
+{{ perms }} <br><br>
+{{ perms.calc }} <br><br>
+{% if perms.calc.add_concrete %}
+    MASZ UPRAWNIENIA
+{% else %}
+    NIE MASZ UPRAWNIEŃ~!
+{% endif %} <br><br>
+
+
+---------------------------------- <br><br>
+
 <br>
 {% if messages %}
     {% for message in messages %}
