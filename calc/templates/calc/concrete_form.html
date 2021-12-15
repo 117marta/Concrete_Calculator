@@ -10,22 +10,20 @@
     </form>
 </div>
 
----------------------------------- <br><br>
-{{ perms }} <br><br>
-{{ perms.calc }} <br><br>
-{% if perms.calc.add_concrete %}
-    MASZ UPRAWNIENIA
-{% else %}
-    NIE MASZ UPRAWNIEŃ~!
-{% endif %} <br><br>
-
-
----------------------------------- <br><br>
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; <br><br>-->
+<!--{{ perms }} <br><br>-->
+<!--Twoje uprawnienia: {{ perms.calc }} <br><br>-->
+<!--{% if perms.calc.add_concrete %}-->
+<!--    MASZ UPRAWNIENIA-->
+<!--{% else %}-->
+<!--    NIE MASZ UPRAWNIEŃ!-->
+<!--{% endif %} <br><br>-->
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; <br><br>-->
 
 <br>
 {% if messages %}
     {% for message in messages %}
-        <div class="text-center alert alert-{{ message.tags }}">
+        <div class="message">
             {{ message|safe }}
         </div>
     {% endfor %}

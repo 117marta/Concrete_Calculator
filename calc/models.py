@@ -1,25 +1,11 @@
 from django.db import models
-# from phonenumber_field.modelfields import PhoneNumberField
-
 
 # Create your models here.
 
 
-# class Dimensions(models.Model):
-#     X = models.FloatField(max_length=5, verbose_name='X:')
-#     Y = models.FloatField(max_length=5, verbose_name='Y:')
-#     Z = models.FloatField(max_length=5, verbose_name='Z:')
-#     R = models.FloatField(max_length=5, verbose_name='R:')
-#     W = models.FloatField(max_length=5, verbose_name='W:')
-#     H = models.FloatField(max_length=5, verbose_name='H:')
-#     V = models.FloatField(max_length=5, verbose_name='V:')
-#     T = models.FloatField(max_length=5, verbose_name='T:')
-#     volume = models.FloatField(max_length=10, null=True, verbose_name='Objętość:')
-
-
 class Concrete(models.Model):
     """
-    Stores a types and a descriptions of concrete.
+    Store a types and a descriptions of concrete.
     """
     name = models.CharField(max_length=50, unique=True, verbose_name='Beton:')
     description = models.CharField(max_length=256, verbose_name='Opis')
@@ -33,7 +19,7 @@ class Concrete(models.Model):
 
 class Use(models.Model):
     """
-    Stores uses of concrete. Related to :model:'calc.Use'.
+    Store uses of concrete. Related to :model:'calc.Use'.
     """
     name = models.CharField(max_length=100, unique=True, verbose_name='Zastosowanie')
     conc = models.ManyToManyField(Concrete, related_name='uses')
@@ -44,7 +30,7 @@ class Use(models.Model):
 
 class Person(models.Model):
     """
-    Stores employees' identities.
+    Store employees' identities.
     """
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=100)
@@ -56,7 +42,7 @@ class Person(models.Model):
 
 class Day(models.Model):
     """
-    Stores the days of the week and the employees' shifts. Related to :model:'calc.Person'.
+    Store the days of the week and the employees' shifts. Related to :model:'calc.Person'.
     """
     DAYS = (
         (1, 'Poniedziałek'),
@@ -82,7 +68,7 @@ class Day(models.Model):
 
 class List(models.Model):
     """
-    Stores a customers' final orders.
+    Store a customers' final orders.
     """
     shape = models.CharField(max_length=50, verbose_name='Kształt')
     volume = models.FloatField(null=True, verbose_name='Objętość')
@@ -90,7 +76,6 @@ class List(models.Model):
     use_of_concrete = models.CharField(max_length=100, verbose_name='Zastosowanie')
     legal_name = models.CharField(max_length=150, null=True, verbose_name='Imię i nazwisko')
     phone = models.CharField(max_length=15, verbose_name='Telefon', null=True)
-    # phone = PhoneNumberField(verbose_name='Telefon')
     concrete_pomp = models.BooleanField(null=True, verbose_name='Pompa do betonu')
     comment = models.TextField(null=True, verbose_name='Komentarz')
     created_date = models.DateTimeField(null=True, auto_now_add=True, verbose_name='Utworzono')

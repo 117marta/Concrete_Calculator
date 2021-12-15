@@ -15,25 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from calc.views import RectangularView, FootingView, CylinderView, TypeValue, \
-    TriangleView, SlabView, StairsView, ConcreteView, ContactView, \
-    LoginView, LogoutView, RegisterView, AddConcreteView, SummaryView
+from calc.views import RectangleView, FootingView, CylinderView, TriangleView, SlabView, StairsView, TypeValue,\
+    ConcreteView, SummaryView, ContactView, \
+    LoginView, LogoutView, RegisterView, AddConcreteView
 from django.views.generic import TemplateView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='calc/index.html')),
-    # path('shape/', ShapeView.as_view()),
     path('calculate/', TemplateView.as_view(template_name='calc/calculate.html')),
-    path('calculate/rectangle/', RectangularView.as_view()),
+    path('calculate/rectangle/', RectangleView.as_view()),
     path('calculate/footing/', FootingView.as_view()),
     path('calculate/cylinder/', CylinderView.as_view()),
     path('calculate/triangle/', TriangleView.as_view()),
     path('calculate/slab/', SlabView.as_view()),
     path('calculate/stairs/', StairsView.as_view()),
     path('calculate/type_value/', TypeValue.as_view()),
-    # path('concrete/', ConcreteView.as_view()),
     path('contact/', ContactView.as_view()),
     path('login/', LoginView.as_view()),
     path('logout/', LogoutView.as_view()),

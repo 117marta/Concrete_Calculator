@@ -1,21 +1,7 @@
 from django import forms
-from .models import Concrete, Use, List
+from .models import Concrete, Use
 from django.contrib.auth.models import User
-from django.core.validators import URLValidator, validate_email, ValidationError
-
-
-# class ShapeChoiceForm(forms.Form):
-#     """Chooses a shape of concrete."""
-#     SHAPES = (
-#         ('rectangular', 'Płyta fundamentowa'),
-#         ('footing', 'Ława fundamentowa'),
-#         ('cylinder', 'Walec'),
-#         ('triangle', 'Trójąt'),
-#         ('slab', 'Płyta z wgłębieniem'),
-#         ('stairs', 'Schody'),
-#     )
-#     shapes = forms.MultipleChoiceField(choices=SHAPES, label='Wybór kształtu', widget=forms.RadioSelect)
-#
+from django.core.validators import ValidationError
 
 
 # FIGURY
@@ -55,7 +41,7 @@ class StairsForm(forms.Form):  # Schody
     X = forms.FloatField(label='X:', widget=forms.TextInput(attrs={'placeholder': 'Długość schodka [m]'}), min_value=0, error_messages={'min_value': 'Wpisz liczbę dodatnią!'})
     Y = forms.FloatField(label='Y:', widget=forms.TextInput(attrs={'placeholder': 'Szerokość schodka [m]'}), min_value=0, error_messages={'min_value': 'Wpisz liczbę dodatnią!'})
     Z = forms.FloatField(label='Z:', widget=forms.TextInput(attrs={'placeholder': 'Wysokość schodka [m]'}), min_value=0, error_messages={'min_value': 'Wpisz liczbę dodatnią!'})
-    V = forms.FloatField(label='V:', widget=forms.TextInput(attrs={'placeholder': 'Liczba stopni'}), min_value=0, error_messages={'min_value': 'Wpisz liczbę dodatnią!'})
+    V = forms.IntegerField(label='V:', widget=forms.TextInput(attrs={'placeholder': 'Liczba stopni'}), min_value=1, error_messages={'min_value': 'Wpisz liczbę dodatnią!'})
     W = forms.FloatField(label='W:', widget=forms.TextInput(attrs={'placeholder': 'Grubość płyty pod schodami [m]'}), min_value=0, error_messages={'min_value': 'Wpisz liczbę dodatnią!'})
 
 
@@ -71,7 +57,6 @@ class ConcreteForm(forms.Form):
     form_phone = forms.CharField(max_length=15, label='Telefon')
     form_concrete_pomp = forms.BooleanField(label='Pompa do betonu', required=False)
     form_comment = forms.CharField(widget=forms.Textarea, label='Komentarz do zamówienia')
-    # form_concrete_pomp = forms.BooleanField(label='Pompa do betonu', widget=forms.RadioSelect(choices=((False, 'NIE'), (True, 'TAK'))))
 
 
 # class ConcreteForm2222222222222(forms.ModelForm):
@@ -80,9 +65,6 @@ class ConcreteForm(forms.Form):
 #     class Meta:
 #         model = List
 #         fields = ['form_use', 'form_concrete', 'legal_name', 'comment', 'phone', 'concrete_pomp', 'created_date']
-
-
-
 
 
 # LOGOWANIE I REJESTRACJA
